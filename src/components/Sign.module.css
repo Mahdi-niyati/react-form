@@ -1,9 +1,12 @@
+
+
 .container {
     display: flex;
     justify-content: center;
     background-color: #f9f9f9;
     min-height: 100vh;
     align-items: center;
+    font-family: 'Figtree', sans-serif;
   }
   
   .formContainer {
@@ -14,13 +17,15 @@
     border-radius: 10px;
     height: fit-content;
     background-color: #fff;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border: none;
   }
   
   .header {
     text-align: left;
     margin-bottom: 40px;
     font-size: 1.8rem;
-    color: #1a73e8;
+    color: #cc2b5e;
   }
   
   .formField {
@@ -120,30 +125,30 @@
   }
   
   .formButtons button {
-    background-color: #1a73e8;
+    background-color: #cc2b5e;
     padding: 10px 20px;
     color: #fff;
     border-radius: 5px;
     border: none;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.1s ease-in;
     cursor: pointer;
   }
   
   .formButtons button:hover {
-    background-color: #004aaa;
+    background-color: #dd2e66;
   }
   
   .formButtons a {
-    color: #1a73e8;
+    color: #cc2b5e;
     text-decoration: none;
     transition: all 0.1s ease-in;
     font-weight: 700;
   }
   
   .formButtons a:hover {
-    color: #004aaa;
+    color: #e22a64;
   }
   @media (max-width: 440px) {
     .formContainer {
