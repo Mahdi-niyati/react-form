@@ -1,20 +1,19 @@
 import React , {useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-import validate from './validate';
+import validateL from './validateL';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { notify } from './toast';
 import styles from "./Sign.module.css"
 
-const Sign = () => {
+const Login = () => {
 
     const [data , setData] = useState({
-        name:"",
+        
         email:"",
         password:"",
-        confirmPassword:"",
         isAccept:false
     })
     const [errors , setErrors] = useState({});
@@ -22,7 +21,7 @@ const Sign = () => {
 
 
     useEffect(() => {
-        setErrors(validate(data));
+        setErrors(validateL(data));
     },[data])
 
     const onchangeHandler = event => {
@@ -45,10 +44,8 @@ const Sign = () => {
         }else{
             notify("Invalid data!" , "error")
             setFocuse({
-                name:true , 
                 email:true ,
                 password: true ,
-                confirmPassword:true ,
                 isAccept:true
             })
         }
@@ -57,19 +54,7 @@ const Sign = () => {
     return (
         <div className={styles.container}>
              <form onSubmit={submitHandler} className={styles.formContainer}>
-                <h2 className={styles.header}>Sign Up</h2>
-                    <div className={styles.formField} >
-                        <label>Name</label>
-                        <input
-                            className={(errors.name && focuse.name) ?styles.uncompleted : styles.formInput}  
-                            type="text" 
-                            name='name' 
-                            value={data.name} 
-                            onChange={onchangeHandler} 
-                            onFocus={focusHandler}  />
-                            
-                            {errors.name && focuse.name && <span>{errors.name}</span>}
-                    </div>
+                <h2 className={styles.header}>Login</h2>
                     <div className={styles.formField} >
                         <label>Email</label>
                         <input 
@@ -94,17 +79,6 @@ const Sign = () => {
                             {errors.password && focuse.password && <span>{errors.password}</span>}
                     </div>
                     <div className={styles.formField} >
-                        <label>ConfirmPassword</label>
-                        <input 
-                            className={(errors.name && focuse.name) ?styles.uncompleted : styles.formInput} 
-                            type="password" 
-                            name='confirmPassword' 
-                            value={data.confirmPassword} 
-                            onChange={onchangeHandler} 
-                            onFocus={focusHandler}  />
-                            {errors.confirmPassword && focuse.confirmPassword && <span>{errors.confirmPassword}</span>}
-                    </div>
-                    <div className={styles.formField} >
                         <div className={styles.checkBoxContainer}>
                         <label>Do you accept our rules?</label>
                             <input 
@@ -117,8 +91,8 @@ const Sign = () => {
                         {errors.isAccept && focuse.isAccept && <span>{errors.isAccept}</span>}
                     </div>
                     <div className={styles.formButtons}>
-                        <Link to="/login">Login</Link>
-                        <button type='submit'>Sign Up</button>
+                        <Link to="/signin">SignUp</Link>
+                        <button type='submit'>Login</button>
                     </div>
              </form>
              <ToastContainer />
@@ -126,4 +100,4 @@ const Sign = () => {
     );
 };
 
-export default Sign;
+export default Login;
